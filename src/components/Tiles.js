@@ -35,15 +35,15 @@ function Tiles(props) {
   return (
     <>
       <div className="wrapper card-columns">
-        {Object.keys(props.data).map((id) => (
-          <>
+        {Object.keys(props.data).map((id,key) => (
             <BingoTile
               data={props.data[id]}
               id={id}
+              key={key}
               isSet={!!state.checked[id]}
               onToggle={() => toggle(id)}
             />
-          </>
+          
         ))}
       </div>
       {state.won && <Celebrate />}
